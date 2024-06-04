@@ -1,0 +1,628 @@
+body{
+    display: grid;
+    grid-template-areas: "logo"
+                         "header"
+                         "main"
+                         "footer";
+    grid-template-columns: auto;
+    grid-template-rows: 125px 35px auto 400px   ;
+    background-color: white;
+    color : black;
+    font-size: 16px ;
+}
+
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family : 'Carlito' , sans-serif;
+}
+
+#logo{
+    grid-area: logo;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#logo img{
+    width: 280px;
+    max-width: 100%;
+    height: auto;
+    transition: filter 0.3s ease;
+}
+
+#logo img:hover{
+    filter : blur(1px);
+}
+
+img{
+    width: 150px;
+    max-width: 100%;
+    height: auto;
+}
+
+#header{
+    grid-area : header;
+    text-align: center;
+    line-height: 20px;
+    background-color: rgb(8,122,116);
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul{
+    list-style-type: none;
+    margin : 0;
+    padding : 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+}
+
+li{
+    float: left;
+}
+
+li a{
+    display: block;
+    text-align: center;
+    padding: 6px 50px;
+    text-decoration: none;
+    color: white;
+}
+
+li a:hover:not(.active){
+    background-color: #ddd;
+    color : black;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color : grey;
+}
+
+
+p.under{
+    display: inline-block;
+    margin : 0;
+}
+
+p.under:after{
+    display: block;
+    content: '';
+    border-bottom: solid 2px black;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+p.under:hover:after{
+    transform: scaleX(1);
+}
+
+#main{
+    grid-area: main;
+    background: url("loire_bateau.jpg") no-repeat center;
+    background-size: cover;
+    height: 640px;
+    position: relative;
+}
+
+.btn{
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 20px;
+    color: white;
+    background-color: #333;
+    padding: 13px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:hover{
+    background-color: #527938;
+    color:#333;
+}
+
+#footer{
+    grid-area: footer;
+    display: flex;
+    justify-content: space-between;
+    gap :10px;
+    padding : 20px;
+    font-style: italic;
+    background-color: rgba(245,225,225,0.4);
+    font-size: 17px;
+    text-align: center;
+}
+
+#iframe{
+    padding: 5px;
+    display: block;
+    width: 100%;
+    height: 200px;
+}
+
+.iconacceuil{
+    width: 50%;
+}
+
+.icon{
+    width: 40%;
+}
+
+.contact{
+    position: relative;
+    min-height: 100px;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(216, 216, 216);
+    background-size: cover;
+}
+
+.contact .content{
+    max-width: 800px;
+    text-align: center;
+}
+
+.contact .content h2{
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.contact .content p{
+    font-weight: 300;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.container .contactinfo{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .contactinfo .box{
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+}
+
+svg{
+    width: 10%;
+}
+
+.container .contactinfo .box .icon{
+    min-width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+.container .contactinfo .box .text{
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    flex-direction: column;
+    font-weight: 300;
+    color: white;
+}
+
+.container .contactinfo .box .text h3{
+    font-weight: 500;
+    color : black;
+}
+
+.contactform{
+    width: 40%;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.contactform h2{
+    font-size: 30px;
+    color : black;
+    font-weight: 500;
+}
+
+.contactform .inputbox{
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.contactform .inputbox input, 
+.contactform .inputbox textarea{
+    width: 100%;
+    padding: 5px 0;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
+}
+
+.contactform .inputbox span{
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    margin: 10px 0;
+    color: #666;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.contactform .inputbox input:focus ~ span,
+.contactform .inputbox input:valid ~ span,
+.contactform .inputbox textarea:focus ~ span,
+.contactform .inputbox textarea:valid ~ span{
+    color: black;
+    font-size: 12px;
+    transform: translateY(-20px);
+}
+
+.contactform .inputbox input[type="submit"]{
+    width: 100px;
+    background: grey;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 5px;
+}
+
+@media (max-width: 1052px){
+    #header{
+        font-size: 12px;
+        margin-right: 5px;  
+    }
+    .contact{
+        padding: 50px;
+    }
+    .container{
+        flex-direction: column;
+    }
+    .container .contactinfo{
+        margin-bottom: 40px;
+    }
+    .container .contactinfo .contactform{
+        width: 100%;
+    }
+}
+
+.footercontact{
+    background-color: rgb(216, 216, 216);
+}
+
+.loirevelo{
+    width: 100%;
+    padding: 78px 0px;
+    background-color: rgb(216, 216, 216);
+}
+
+.loirevelo img{
+    height: auto;
+    width: 420px;
+    border-radius: 10px;
+}
+
+.loirevelo-text{
+    width: 550px;
+}
+
+.mainloire{
+    width: 1130px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.loirevelo-text h1{
+    font-style: italic;
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+.loirevelo-text p{
+    letter-spacing: 1px;
+    line-height: 28px;
+    font-size: 18px;
+    margin-bottom: 45px;
+}
+
+.separation{
+    border-top: 3px solid #000000;
+}
+
+.reserver{
+    position: relative;
+    min-height: 100px;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.resform{
+    width: 40%;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.resform h2{
+    font-size: 30px;
+    color : black;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.resform .inputbox{
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.resform .inputbox input{
+    width: 100%;
+    padding: 5px 0;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
+    font-size: 16px;
+}
+
+.resform .inputbox span{
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    color: #666;
+    transition: 0.5s;
+    pointer-events: none;
+    font-size: 16px;
+}
+
+/* ~ -> permet de cibler un element */
+/* focus -> si on clique sur l'element du form */
+/* valid -> valeur valide dans l'element du form */
+
+.resform .inputbox input:focus ~ span,
+.resform .inputbox input:valid ~ span,
+.resform .inputbox textarea:focus ~ span,
+.resform .inputbox textarea:valid ~ span{
+    color: black;
+    font-size: 12px;
+    transform: translateY(-20px);
+}
+
+.resform .inputbox input[type="submit"]{
+    width: 100px;
+    background: grey;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 5px;
+}
+
+.main-reserver{
+    grid-area: main;
+    background: url("loire_bateau2.jpg") no-repeat center;
+    background-size: cover;
+    height: 900px;
+    position: relative;
+}
+
+.inputbox{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.inputbox label{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pres{
+    background-color: white;
+    overflow: hidden;
+}
+
+.titre h1{
+    color: #527938;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 35px;
+}
+
+.prescontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 65px auto;
+}
+
+.pres-content{
+    flex: 1;
+    width: 600px;
+    margin: 0px 25px;
+    animation: fadeInUp 2s ease;;
+}
+
+.pres-content h2{
+    font-size: 38px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.pres-content p{
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    color: #666;
+}
+.pres-img{
+    flex: 1;
+    width: 600px;
+    margin: auto;
+    animation: fadeInRight 2s ease;;
+
+}
+
+.pres-img img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 768px){
+    .titre h1{
+        font-size: 45px;
+        margin-top: 30px;
+    }
+
+    .pres{
+        margin: 0px;
+    }
+
+    .prescontainer{
+        width: 100%;
+        flex-direction: column;
+        margin: 0px;
+        padding: 0px 40px;
+    }
+
+    .pres-content{
+        width: 100%;
+        margin: 35px 0px;
+    }
+
+    .pres-content h2{
+        font-size: 30px;
+    }
+
+    .pres-content p{
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .pres-img{
+        width: 100%;
+    }
+}
+
+/* animation image presentation.php */
+@keyframes fadeInUp{
+    0%{
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes fadeInRight{
+    0%{
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.resultats{
+    background-color: white;
+}
+.resultats-container {
+    text-align: center;;
+}
+
+.resultats-container h1 {
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+.resultats-container table{
+    padding: 10px;
+    border-collapse: collapse;
+    background-color: #bdbdbd;
+    margin: 0 auto;
+    font-size: 10px;
+    max-width: 90%;
+}
+
+.resultats-container table td {
+    margin: 0 auto; 
+}
+.resultats-container table th,
+.resultats-container table td {
+    padding: 10px; 
+    border: 1px solid black;
+    width: 150px;
+}
+
+.visiter {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    padding: 20px;
+}
+
+.visform {
+    width: 50%; 
+    max-width: 600px;
+    padding: 20px; 
+    background-color: #fff; 
+    border-radius: 10px; 
+}
+
+.visform h1 {
+    text-align: center; 
+}
+
+.visform form {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
